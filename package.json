@@ -2,10 +2,9 @@
   "name": "proyecto1",
   "version": "1.0.0",
   "description": "proyecto 1 - inteligencia artificial 1",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "app.js"
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
