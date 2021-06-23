@@ -2,7 +2,7 @@
   "name": "proyecto1",
   "version": "1.0.0",
   "description": "proyecto 1 - inteligencia artificial 1",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "start": "app.js"
   },
