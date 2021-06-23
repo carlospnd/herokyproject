@@ -4,7 +4,8 @@
   "description": "proyecto 1 - inteligencia artificial 1",
   "main": "index.js",
   "scripts": {
-    "start": "app.js"
+     "test": "make test",
+     "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
