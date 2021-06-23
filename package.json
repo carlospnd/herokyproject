@@ -4,6 +4,7 @@
   "description": "proyecto 1 - inteligencia artificial 1",
   "main": "index.js",
   "scripts": {
+    "start": "app.js"
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
