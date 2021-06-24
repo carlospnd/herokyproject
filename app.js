@@ -67,6 +67,9 @@ express()
   .get('/', function(req, res){ 
   
   turno = req.query.turno
+  if(turno == 0){
+	  turno = 2;
+  }
   estado = req.query.estado
   
   init();
@@ -113,12 +116,12 @@ function init()
   
   checkPossibilities(turno); //BUSCO LAS POSIBILIDADES
   KI();
-  console.log(possibilities);
+  //console.log(possibilities);
     
 }
 
 function reemplazarNumeracion(){
-	console.log("reemplazarNumeracion");
+	//console.log("reemplazarNumeracion");
 	for (var i = 0; i < Spielfeld.length; i++) {
 		if(Spielfeld[i] == 2){
 			Spielfeld[i] = 3;
@@ -146,8 +149,8 @@ function reemplazarNumeracion(){
 
 
 function printState(board){
-	console.log("Estado actual: ");	
-	console.log(board);
+	//console.log("Estado actual: ");	
+	//console.log(board);
 }
 
 function checkPossibilities(color){
@@ -542,7 +545,7 @@ function KI()
     }
     else temp3[0] = temp2[0];
   }
-  console.log("temp3: " + temp3);
+  //console.log("temp3: " + temp3);
  //Still there can be more than one move of the same importance. So finally a move is chosen by chance.
   blah = Math.floor((Math.random() * 1000) % temp3.length);
   nimm = temp3[blah];
