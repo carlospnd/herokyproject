@@ -368,7 +368,7 @@ function validaPosibilidad(color){
 function Jugar()
 {
   var i, j, k, l;
-  var blah, blah2, nimm;
+  var peso1, peso2, movimientoAJugar;
   var temp  = new Array();
   var temp2 = new Array();
   var temp3 = new Array();
@@ -385,12 +385,12 @@ function Jugar()
     if (tempPosibilidad[i]['numero'] > 0)
     {
       Tablero[i] = blanco;
-      fakeFlip(blanco, i);
+      jugadaMentira(blanco, i);
     }
     else continue;
     
     validaPosibilidad(negro);
-    if (checkMove() == 0) temp2.push(i);
+    if (validaMovimiento() == 0) temp2.push(i);
     
     for (j = 0;  j < 64;  j++) Tablero[j] = tempTablero[j];
   }
@@ -485,7 +485,7 @@ function Jugar()
  //ELIJO LA JUGADA CON LA MAYOR DIFERENCIA ENTRE LOS VALORES DE LA JUGADA ACTUAL Y LOS DE LAS POSIBILIDADES
   else
   {
-    var Differenz = -1000;
+    var Diferencia = -1000;
     if (temp2.length > 1)
     {
       for (i = 0;  i < 64;  i++)
@@ -498,17 +498,17 @@ function Jugar()
       for (i = 0;  i < temp2.length;  i++)
       {
         temp = posibilidades[(temp2[i])]['flips'].split('|');
-        blah = 0;
-        for (j = 0;  j < temp.length-1;  j++) blah += tableroPesos[(temp[j])];
+        peso1 = 0;
+        for (j = 0;  j < temp.length-1;  j++) peso1 += tableroPesos[(temp[j])];
         Tablero[(temp2[i])] = blanco;
-        fakeFlip(blanco, (temp2[i]));
+        jugadaMentira(blanco, (temp2[i]));
         validaPosibilidad(negro);
         
         for (j = 0;  j < 64;  j++)
         {
           temp = posibilidades[j]['flips'].split('|');
-          blah2 = 0;
-          for (k = 0;  k < temp.length-1;  k++) blah2 += tableroPesos[(temp[k])];
+          peso2 = 0;
+          for (k = 0;  k < temp.length-1;  k++) peso2 += tableroPesos[(temp[k])];
         }
         
         for (j = 0;  j < 64;  j++)
@@ -518,16 +518,16 @@ function Jugar()
           Tablero[j]               = tempTablero[j];
         }
         
-        if (blah - blah2 > Differenz)
+        if (peso1 - peso2 > Diferencia)
         {
           while (typeof(temp3[0]) != 'undefined')
           {
             temp3.pop();
           }
           temp3.push(temp2[i]);
-          Differenz = blah - blah2;
+          Diferencia = peso1 - peso2;
         }
-        else if (Differenz == blah - blah2)
+        else if (Diferencia == peso1 - peso2)
         {
           temp3.push(temp2[i]);
         }
@@ -536,17 +536,17 @@ function Jugar()
     else temp3[0] = temp2[0];
   }
  //COMO PUEDE EXISTIR MAS DE UN MOVIMIENTO CON EL MISMO VALOR LO ESCOJO ALEATORIAMENTE
-  blah = Math.floor((Math.random() * 1000) % temp3.length);
-  nimm = temp3[blah];
+  peso1 = Math.floor((Math.random() * 1000) % temp3.length);
+  movimientoAJugar = temp3[peso1];
   
-  buscarPosicionReal(nimm);
+  buscarPosicionReal(movimientoAJugar);
   
-  console.log("Movimiento: " + nimm);
+  console.log("Movimiento: " + movimientoAJugar);
   
 }
 
 //REALIZO UNA JUGADA DE MENTIRA PARA VER SI LA QUE ESTOY ESCOGIENDO ES BUENA DESICION
-function fakeFlip(color, field)
+function jugadaMentira(color, field)
 {
   var temp = new Array();
   temp = tempPosibilidad[field]['flips'].split('|');
@@ -557,7 +557,7 @@ function fakeFlip(color, field)
 }
 
 //FUNCION QUE COMPRUEBA SI TENGO MOVIMIENTOS POSIBLES
-function checkMove()
+function validaMovimiento()
 {
   var j = 0;
   for (var i = 0;  i < 64;  i++)
