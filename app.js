@@ -6,10 +6,10 @@ var id = req.query.id; // $_GET["id"]
 
 express()
   .use(express.static(path.join(__dirname, 'public')))  
-  .get('/', function(req, res){
-  res.send('turno: ' + req.query.turno);
-});
+  .get('/', (req, res) => res.send('53'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+
+
 
 
 
