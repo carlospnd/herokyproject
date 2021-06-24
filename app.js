@@ -4,11 +4,13 @@ const PORT = process.env.PORT || 5000
 
 express()
   .use(express.static(path.join(__dirname, 'public')))  
-  .get('/', (req, res) => res.send('53'))
+  .get('/', function(req, res){
+		var numero = init();
+		res.send(numero);
+	});
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
-
-
-
-
-
+function init()
+{
+	return 52;
+}
