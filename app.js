@@ -76,10 +76,10 @@ express()
 
 function buscarPosicionReal(posicion){
 	console.log("Buscando: " + posicion);
-	for(var i=0; i<wertDic.length; i++){
-		if(wertDic[i] == posicion){
+	for(var i=0; i<wertRea.length; i++){
+		if(wertRea[i] == posicion){
 			console.log("Encontrado en: " + i);
-			console.log("Equivale a: " + wertRea[i]);
+			console.log("Equivale a: " + wertDic[i]);
 			break;
 		}
 	}
