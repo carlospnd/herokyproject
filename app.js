@@ -70,7 +70,7 @@ express()
   estado = req.query.estado
   
   init();
-  res.send(movimiento); 
+  res.send(String(movimiento)); 
   
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
