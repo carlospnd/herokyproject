@@ -562,8 +562,8 @@ function KI()
   if (checkMove() == 0)
   {
     checkPossibilities(computer);
-    if (checkMove() == 0) gameOver();
-    else setTimeout("KI()", 2000);
+    /*if (checkMove() == 0) gameOver();
+    else setTimeout("KI()", 2000);*/
   }
   else for (i = 0;  i < 64;  i++)
   {
