@@ -542,22 +542,7 @@ function Jugar()
   buscarPosicionReal(nimm);
   
   console.log("Movimiento: " + nimm);
-  //putPiece(blanco, nimm);
-  //flip(blanco, nimm);
-
-  //VALIDO SI PUEDO MOVERME
-  //progress = 0;
-  //validaPosibilidad(negro);
   
-  //if (checkMove() == 0)
-  //{
-  //  validaPosibilidad(blanco);
-  //}
-  //else for (i = 0;  i < 64;  i++)
- // {
-  //  if (posibilidades[i]['numero'] > 0) putPiece (5,i);
-  //  else if (Tablero[i] == 0) putPiece(0,i);
-  //}
 }
 
 //REALIZO UNA JUGADA DE MENTIRA PARA VER SI LA QUE ESTOY ESCOGIENDO ES BUENA DESICION
@@ -582,50 +567,3 @@ function checkMove()
   return j;
 }
 
-
-//REALIZO EL CAMBIO DE UNA FICHA EN UNA POSICION EN ESPECIFICO DEL TABLERO
-function putPiece(color, field)
-{
-//5 for the color parameter is used for the flipcounts. Those of course are only shown if it's the negro's turn, i.e. if progress is 0.
-  if (color == 5 && progress == 0)
-  {
-   
-  }
-
-  else if (color == 0 || (color == 5 && progress == 1))
-  {
- 
-  }
-
-  else
-  {
-    if (Tablero[field] != 0)
-    {
-      
-    }
-    else {
-	
-	}
-    Tablero[field] = color;
-    
-    cantidadBlancas = 0;
-    cantidadNegras = 0;
-    for (j = 0;  j < 64;  j++)
-    {
-      if (Tablero[j] == 1) cantidadBlancas++;
-      if (Tablero[j] == 2) cantidadNegras++;
-    }
-   
-  }
-}
-
-//REALIZO LA JUGADA
-function flip(color, field)
-{
-  var temp = new Array();
-  temp = posibilidades[field]['flips'].split('|');
-  for (i = 0;  i < temp.length-1;  i++)
-  {
-    putPiece(color,temp[i]);
-  }
-}
