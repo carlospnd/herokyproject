@@ -508,10 +508,11 @@ function KI()
     }
     else temp3[0] = temp2[0];
   }
-  console.log("tempo3: " + temp3);
+  console.log("temp3: " + temp3);
  //Still there can be more than one move of the same importance. So finally a move is chosen by chance.
   blah = Math.floor((Math.random() * 1000) % temp3.length);
   nimm = temp3[blah];
+  console.log("Movimiento: " + nimm);
   putPiece(computer, nimm);
   flip(computer, nimm);
  //Finally the possibilities for the player are checked. If he can move the control is given to him, if not the AI calls itself again after 2 seconds. However if the AI cannot move itself the game is over.
