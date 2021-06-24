@@ -66,11 +66,8 @@ function init()
     tempPossibilities[i]['anzahl'] = 0;
     tempPossibilities[i]['flips'] = '';
   }
-	
   
-  getParametros(); // LLENO MIS VARIABLES
-  
-  player = turno;
+   player = turno;
   
   
   for (var i = 0; i < estado.length; i++) {
@@ -84,12 +81,6 @@ function init()
   KI();
   console.log(possibilities);
     
-}
-
-function getParametros(){
-    let params = new URLSearchParams(location.search);
-    turno= params.get('turno');
-    estado = params.get('estado');
 }
 
 function reemplazarNumeracion(){
