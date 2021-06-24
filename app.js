@@ -82,7 +82,7 @@ function buscarPosicionReal(posicion){
 		if(wertRea[i] == posicion){
 			console.log("Encontrado en: " + i);
 			console.log("Equivale a: " + wertDic[i]);
-			movimiento = wertDic[i];
+			movimiento = wertDic[i].toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
 			break;
 		}
 	}
