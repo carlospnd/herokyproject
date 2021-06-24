@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 5000
 
 express()
   .use(express.static(path.join(__dirname, 'public')))  
-  .get('/', function(req, res){ var saludar = init(); res.send(numero); })
+  .get('/', function(req, res){ var saludar = init(); res.send(saludar); })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 function init()
