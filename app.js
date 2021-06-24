@@ -4,6 +4,8 @@ const PORT = process.env.PORT || 5000
 
 //Now to the actual script. At first there are the usual declarations of global variables.
 //If it is the computer's turn, this variable is 1. It's used to block further actions from the player.
+var movimiento = 0;
+
 var progress = 1;
 
 //the colors of both parties
@@ -68,7 +70,7 @@ express()
   estado = req.query.estado
   
   init();
-  res.send("Hola mundo"); 
+  res.send(movimiento); 
   
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
@@ -80,6 +82,7 @@ function buscarPosicionReal(posicion){
 		if(wertRea[i] == posicion){
 			console.log("Encontrado en: " + i);
 			console.log("Equivale a: " + wertDic[i]);
+			movimiento = wertDic[i];
 			break;
 		}
 	}
